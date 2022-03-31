@@ -10,6 +10,7 @@ if($_POST['signup']){
     if(!empty($password) && !empty($username) && $password == $passwordConf){
         $sql = "SELECT * FROM users WHERE username = '$username'";
         $result = mysqli_query($conn, $sql);
+        print($result);
 
         if(mysqli_num_rows($result) == 0){
             $password = hashPassword($password);
