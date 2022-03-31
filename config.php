@@ -9,7 +9,7 @@ $password = "raspberry";
 
 // Create connection
 
-$conn = mysqli_connect($servername, $username, $password, $database);
+$conn = mysqli_connect($servername, $username, $password, $database, 3306);
 
 // Message template
 
