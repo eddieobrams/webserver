@@ -1,8 +1,11 @@
 <?php
+
+session_start();
+
 $servername = "localhost";
-$database = "database";
-$username = "username";
-$password = "password";
+$database = "userdb";
+$username = "root";
+$password = "raspberry";
 
 // Create connection
 
@@ -14,3 +17,12 @@ $msgTmplt = "<div class='message'>
 <div class='user'><b>@eddieobrams</b> says</div>
 <div class='message'>Hey! Welcome to my website.</div>
 </div>";
+
+function tokenize($stringA, $stringB){
+    $tokenizedStringRaw = $stringA . $stringB;
+    return md5($tokenizedStringRaw);
+}
+
+function hashPassword($password){
+    return sha1($password);
+}

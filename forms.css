@@ -3,7 +3,7 @@
   }
   
   body {
-    background-color: #212121;
+    background: rgb(107, 150, 231);
     color: #fff;
     font-family: monospace, serif;
     letter-spacing: 0.05em;

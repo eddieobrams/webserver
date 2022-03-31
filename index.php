@@ -1,3 +1,9 @@
+<?php
+
+require 'config.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +23,12 @@
                 <li><a href="chat.php">Chat</a></li>
             </ul>
         </nav>
-        <a href="signin.php" class="cta"><button>Sign In</button></a>
+        <?php if(empty($_SESSION['username'])): ?>
+            <a href="signin.php" class="cta"><button>Sign In</button></a>
+        <?php endif; ?>
+        <?php if(!empty($_SESSION['username'])): ?>
+            <a href="#" class="cta"><button>@<?php echo $_SESSION['username'] ?></button></a>
+        <?php endif; ?>
     </header>
 </body>
 </html>

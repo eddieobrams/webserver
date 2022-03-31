@@ -1,3 +1,9 @@
+<?php
+
+require 'validation.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,10 +24,15 @@
                 <li><a href="chat.php">Chat</a></li>
             </ul>
         </nav>
-        <a href="signin.php" class="cta"><button>Sign Up</button></a>
+        <?php if(empty($_SESSION['username'])): ?>
+            <a href="signin.php" class="cta"><button>Sign In</button></a>
+        <?php endif; ?>
+        <?php if(!empty($_SESSION['username'])): ?>
+            <a href="#" class="cta"><button>@<?php echo $_SESSION['username'] ?></button></a>
+        <?php endif; ?>
     </header>
     <main>
-        <form autocomplete='off' class='form'>
+        <form autocomplete='off' method='post' class='form'>
             <div class='control'>
               <h1>
                 Sign Up
@@ -63,7 +74,7 @@
                   <div class='bg-inner'></div>
                 </div>
               </div>
-            <button class='btn block-cube block-cube-hover' type='submit'>
+            <button class='btn block-cube block-cube-hover' name="signup" type='submit'>
               <div class='bg-top'>
                 <div class='bg-inner'></div>
               </div>
